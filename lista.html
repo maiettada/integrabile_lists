@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to create an OL element and a LI element.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+LINGUA=1
+events=[["coffee and cigarettes","caffè e sigaretta"],
+["milk and chockolate","latte e cioccolato"],
+["tuna and tomatoes","tonno e pomodori"]
+]
+function myFunction() {
+  for(event of events)
+  {
+  var x = document.createElement("UL");
+  x.setAttribute("id", "myOl");
+  document.body.appendChild(x);
+
+  var y = document.createElement("LI");
+  var t = document.createTextNode(event[LINGUA]);
+  y.appendChild(t);
+  document.getElementById("myOl").appendChild(y);
+  }
+}
+</script>
+
+</body>
+</html>
+
