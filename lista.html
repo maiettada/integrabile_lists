@@ -3,29 +3,50 @@
 <body>
 
 <p>Click the button to create an OL element and a LI element.</p>
-
-<button onclick="myFunction()">Try it</button>
+<div>
+<select onchange="listInLanguage(this.selectedIndex);" style="width:200px;">
+    <option value="0">English </option>
+    <option value="1">Italiano</option>
+    <option value="2" selected="selected">select</option>
+  </select>
+</div>
 
 <p id="demo"></p>
 
 <script>
-LINGUA=1
-events=[["coffee and cigarettes","caffè e sigaretta"],
-["milk and chockolate","latte e cioccolato"],
-["tuna and tomatoes","tonno e pomodori"]
-]
-function myFunction() {
-  for(event of events)
-  {
-  var x = document.createElement("UL");
-  x.setAttribute("id", "myOl");
-  document.body.appendChild(x);
+function listInLanguage(LINGUA){
 
-  var y = document.createElement("LI");
-  var t = document.createTextNode(event[LINGUA]);
-  y.appendChild(t);
-  document.getElementById("myOl").appendChild(y);
-  }
+var lingua_scelta = parseInt(LINGUA, 10);
+	if(lingua_scelta!=2)
+	{
+
+	var myObj, i, j, x = "";
+	myObj= {
+	      "cars": [
+		 {"name":["coffee and cigarettes","caffè e sigaretta"], 		"birth":"1986-12-14",
+	 	 "city":"New York"},
+		 {"name":["milk and chockolate","latte e cioccolato"], 			"birth":"1986-12-14",
+	 	 "city":"New York"},
+		 {"name":["tuna and tomatoes","tonno e pomodori"], 
+ 		"birth":"1986-12-14", 
+	 	"city":"New York"},
+		 {"name":["beer and pizza","birra e pizza"], 
+		 "birth":"1986-12-14", 
+		 "city":"New York"}
+	      ]
+	}
+
+
+
+	for (i in myObj.cars) {
+	  x += "<h2>" + myObj.cars[i].name[LINGUA] + "</h2>";
+	}
+	document.getElementById("demo").innerHTML = x;
+	}
+	else 
+	{
+		document.getElementById("demo").innerHTML = "";
+	}
 }
 </script>
 
