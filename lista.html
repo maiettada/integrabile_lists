@@ -14,6 +14,12 @@
 <p id="demo"></p>
 
 <script>
+
+function ahref(title,url)
+{
+	return '<a href="'+url+'">'+title+'</a>'
+}
+
 function listInLanguage(LINGUA){
 
 var lingua_scelta = parseInt(LINGUA, 10);
@@ -23,24 +29,47 @@ var lingua_scelta = parseInt(LINGUA, 10);
 	var myObj, i, j, x = "";
 	myObj= {
 	      "events": [
-		 {"name":["coffee and cigarettes","caffè e sigaretta"], 		"date":"1986-12-14",
-	 	 "city":"New York"},
-		 {"name":["milk and chockolate","latte e cioccolato"], 			"date":"1986-12-14",
-	 	 "city":"New York"},
-		 {"name":["tuna and tomatoes","tonno e pomodori"], 
- 		"date":"1986-12-14", 
-	 	"city":"New York"},
-		 {"name":["beer and pizza","birra e pizza"], 
-		 "date":"1986-12-14", 
-		 "city":"New York"}
+		 {"name":["coffee and cigarettes","caffè e sigaretta"], 		"date":["October, 12, 2014","12/10/2014"],
+	 	 "city":"New York",
+	 	 "manifesto":"path/to/manifesto.html",
+	 	 "video":"path/to/video.html",
+	 	 "slides":"path/to/slides.html"
+	 	 },
+		 {"name":["milk and chockolate","latte e cioccolato"], 			"date":["October, 12, 2014","12/10/2014"],
+	 	 "city":"New York",
+	 	 "manifesto":"path/to/manifesto.html",
+	 	 "video":"path/to/video.html",
+	 	 "slides":"path/to/slides.html"
+	 	 },
+		 {"name":["tuna and tomatoes","tonno e pomodori"],
+ 		"date":["October, 12, 2014","12/10/2014"],
+	 	"city":"New York",
+	 	 "manifesto":"path/to/manifesto.html",
+	 	 "video":"path/to/video.html",
+	 	 "slides":"path/to/slides.html"
+	 	 },
+		 {"name":["beer and pizza","birra e pizza"],
+		"date":["October, 12, 2014","12/10/2014"],
+		 "city":"New York",
+	 	 "manifesto":"path/to/manifesto.html",
+	 	 "video":"path/to/video.html",
+	 	 "slides":"path/to/slides.html"
+	 	 }
 	      ]
 	}
 
 
-
+	x+="<ul>";
 	for (i in myObj.events) {
-	  x += "<h2>" + myObj.events[i].name[LINGUA] + "</h2>";
+	  x += "<li>" + myObj.events[i].name[LINGUA] + ", "
+		+ myObj.events[i].date[LINGUA]+ ", "
+		+ myObj.events[i].city + ", "
+		+ ahref("manifesto", myObj.events[i].manifesto) + ", "
+		+ ahref("video", myObj.events[i].video) + ", "
+		+ ahref("slides", myObj.events[i].slides) + " "
+	  + ";</li>";
 	}
+	x+="</ul>";
 	document.getElementById("demo").innerHTML = x;
 	}
 	else 
